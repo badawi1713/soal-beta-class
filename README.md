@@ -16,7 +16,7 @@
 Column | Type | Size
 ------------ | -------------| -------------
 id | int | 11
-product_name | String | 60
+product_name | Varchar | 60
 price | int | 11
 category | Varchar | 60
 
