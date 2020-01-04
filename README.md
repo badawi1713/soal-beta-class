@@ -1,6 +1,7 @@
-# Jawaban untuk Soal Beta Class (04/01/2020) - Dzaky Badawi
+# Jawaban untuk Soal Beta Class (04/01/2020)
+#### Oleh: Dzaky Badawi
 
-###Bismillah
+### Bismillah
 #### Jawaban nomor 1,2,4,5:
 ##### Untuk jawaban nomor 1,2,4,5 saya menggunakan bahasa pemrograman Javascript yang dapat deksekusi melalui https://es6console.com/
 
@@ -45,29 +46,29 @@ nodemon
 localhost:3001
 ```
 
-### Example of basic POS App CRUD with Node.js (Express), EJS, and MYSQL:
-#### 1st image, my to-do-list app Index page! When list item is created successfully, the list item will appear on the table.
+### Demo Example of basic POS App CRUD with Node.js (Express), EJS, and MYSQL:
+#### 1st image, halaman utama yang menampilkan daftar order-an. Dimana user dapat melihat daftar order yang telah ditambahkan dan juga terdapat tombol untuk menambah order. Selain itu juga pada navigasi atas terdapat menu lain yaitu "Product" untuk menuju ke halaman Product.
 
 ![First image](https://github.com/badawi1713/soal-beta-class/blob/master/jawaban-06/pos-app-basic/public/images/1.PNG)
 
-#### 2nd image, to insert new list item we must add item data by click on "+ Add Item" button and the modal will pop up, then you must input the list item title.
+#### 2nd image, untuk menambah order baru dapat mengisikan form add order pada halaman indeks '/'
 
 ![Second image](https://github.com/badawi1713/soal-beta-class/blob/master/jawaban-06/pos-app-basic/public/images/2.PNG)
 
-#### 3rd image, to edit the list item title, you can click the edit button.
+#### 3rd image, pada halaman product terdapat daftar product yang telah didaftarkan. Pengguna dapat melakukan tambah product, melakukan edit, dan menghapusnya.
 
 ![Third image](https://github.com/badawi1713/soal-beta-class/blob/master/jawaban-06/pos-app-basic/public/images/3.PNG)
 
-#### 4th image, the result after list item title that been edited.
+#### 4th image, menambah produk yang akan ditambahkan.
 
 ![Fourth image](https://github.com/badawi1713/soal-beta-class/blob/master/jawaban-06/pos-app-basic/public/images/4.PNG)
 
-#### 5th image, to delete single list item you can click the delete button and the confirmation box will appear to confirm your action.
+#### 5th image, form untuk melakukan edit data produk yang telah ditambahkan.
 
 ![Fifth image](https://github.com/badawi1713/soal-beta-class/blob/master/jawaban-06/pos-app-basic/public/images/5.PNG)
 
-#### 6th image, if your list item is empty, the view of the index page will appear like this.
+#### 6th image, apabila ingin menghapus data produk akan tampil konfirmasi seperti berikut.
 
 ![Sixth image](https://github.com/badawi1713/soal-beta-class/blob/master/jawaban-06/pos-app-basic/public/images/6.PNG)
 
-##### Thank you!
+### Thank you!
