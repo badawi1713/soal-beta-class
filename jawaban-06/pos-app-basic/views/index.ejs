@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="shortcut icon" href="./public/img/favicon.ico" /> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </script>
+
+    <title><%= pageTitle %></title>
+
+</head>
+
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Ark's Food Court</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Orders <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/products">Products </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Top Navbar -->
+<!-- Add Product Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">New Product Item</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form action="/add-order" enctype="application/x-www-form-urlencoded" method="POST">
+
+        <div class="form-group">
+          <label for="cashier">Cashier's Name </label>
+          <select name="id_cashier" class="form-control">
+            <% dataCashier.forEach((v) => { %>
+                <option value="<%=v.id%>"><%=v.cashier_name%></option>
+            <%})%>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Product </label>
+            <select name="id_product" class="form-control">
+                <% dataProduct.forEach((v) => { %>
+                <option value="<%=v.id%>"><%=v.product_name%></option>
+            <%})%>
+            </select>
+          </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <button onclick="return checkLengthAdd()" type="submit" class="btn btn-success">Submit</button>
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+
+<!-- End of Add Product Modal -->
+    <br />
+     <!-- MAIN SECTION -->
+  <main role="main" class="container">
+    <div style="background-color: #343A40;"
+      class="d-flex align-items-center p-3 my-3 text-white-50 rounded shadow-sm">
+      <img class="mr-3"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/VisualEditor_-_Icon_-_Indent-list-ltr_-_white.svg/768px-VisualEditor_-_Icon_-_Indent-list-ltr_-_white.svg.png"
+        alt="" width="48" height="48">
+      <div class="lh-100">
+        <h2 class="mb-0 text-white lh-100">Order Lists</h2>
+        <small>@badawi1713</small>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">+
+        Add Order</button>
+    </div>
+  </main>
+  <!-- End of MAIN SECTION -->
+  <br/>
+    <!-- Content -->
+
+    <div class="container">
+        <div class="table">
+            <table class="table table-hover table-bordered">
+                <thead style="text-align: center;" class="thead-dark">
+                    <th scope="col">No</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Cashier</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </thead>
+                <tbody>
+                    <% if (dataOrder.length === 0){ %>
+                    <td colspan="5">
+                        <center>
+                            <h4>No One is Ordering!</h4>
+                        </center>
+                    </td>
+
+                    <% } else { %>
+
+                    <% for (var i = 0, no = 1; no && i<dataOrder.length; no++, i++) { %>
+                    <tr style="text-align: center;">
+                        <td scope="row"><%=no%></td>
+                        <td scope="row"><%=dataOrder[i].product%></td>
+                        <td scope="row"><%=dataOrder[i].cashier%></td>
+                        <td><%=dataOrder[i].date%></td>
+                        <td>
+                            <div>
+                                <form action="/delete-order" enctype="application/x-www-form-urlencoded" method="post">
+                                    <input type="hidden" name="id" value="<%= dataOrder[i].id %>" />
+                                    <button onclick="return deleteOrder()" class="btn btn-danger" title="delete"><i
+                                            class="fa fa-trash"></i></button>
+                                </form>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <% } %>
+                    <% }%>
+                </tbody>
+
+            </table>
+        </div>
+
+
+
+        <!-- Content -->
+        <br />
+        <!-- Footer -->
+
+        <div class="footer">
+            <footer style="text-align: center;">&copy; 2020 - Basic CRUD POS App</footer>
+        </div>
+
+        <!-- Footer -->
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+        </script>
+
+        <script>
+            // Insert Form To-Do-List Modal Script
+            $('#exampleModal').on('show.bs.modal', function (event) {
+
+            });
+
+            // Edit List Item Modal script
+            $(document).on("click", '.edit_button', function (e) {
+                var title = $(this).data('title');
+                var id = $(this).data('id');
+
+                $(".todolist_id").val(id);
+                $(".todolist_title").val(title);
+            });
+
+            function checkLengthAdd() {
+                var inputTitle = document.getElementById("addTitle");
+                if (inputTitle.value.length <= 100 && inputTitle.value.length >= 3) {
+                    console.log('Input OK!');
+                } else {
+                    alert("Make sure the title is between 3-100 characters long!");
+                    return false;
+                }
+            }
+
+            function checkLengthEdit() {
+                var inputTitle = document.getElementById("editTitle");
+                if (inputTitle.value.length <= 100 && inputTitle.value.length >= 3) {
+                    console.log('Input OK!');
+                } else {
+                    alert("Make sure the title is between 3-100 characters long!");
+                    return false;
+                }
+            }
+
+            function deleteOrder() {
+                var r = confirm('Confirmation to delete this order?');
+                if (r == true) {
+                    alert('Order item deleted!');
+                } else {
+                    alert('Delete order item have been canceled!');
+                    return false;
+                }
+            };
+        </script>
+</body>
+
+</html>

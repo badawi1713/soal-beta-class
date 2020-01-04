@@ -1,0 +1,24 @@
+{
+  "name": "pos-app-basic",
+  "version": "1.0.0",
+  "description": "Membuat aplikasi POS sederhana untuk jawaban soal nomor 6, test beta-class arkademy (4/1/20)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pos",
+    "node.js",
+    "express.js",
+    "crud"
+  ],
+  "author": "dzaky.badawi@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
