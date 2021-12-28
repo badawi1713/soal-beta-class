@@ -1,7 +1,6 @@
 # Jawaban untuk Soal Beta Class (04/01/2020)
 #### Oleh: Dzaky Badawi
 
-### Bismillah
 #### Jawaban nomor 1,2,4,5:
 ##### Untuk jawaban nomor 1,2,4,5 saya menggunakan bahasa pemrograman Javascript yang dapat deksekusi melalui https://es6console.com/
 
